@@ -150,3 +150,339 @@ let biggerObjects = serializedJSON.compactMap { BiggerObject(from: $0) }
 biggerObjects.first?.greatness
 
 
+
+
+//Lab walkthrough!
+let randomUsers = """
+{
+"results": [
+{
+"gender": "male",
+"name": {
+"title": "Mr",
+"first": "Samuel",
+"last": "Latt"
+},
+"location": {
+"street": {
+"number": 3760,
+"name": "Rotuaari"
+},
+"city": "Juankoski",
+"state": "Southern Ostrobothnia",
+"country": "Finland",
+"postcode": 38169,
+"coordinates": {
+"latitude": "-7.5665",
+"longitude": "-51.9414"
+},
+"timezone": {
+"offset": "+6:00",
+"description": "Almaty, Dhaka, Colombo"
+}
+},
+"email": "samuel.latt@example.com",
+"login": {
+"uuid": "d7c6b3c5-be47-42ca-9af9-e9779234f018",
+"username": "yellowmeercat943",
+"password": "passw0rd",
+"salt": "T5sDjXPL",
+"md5": "ac32bf9833410a3cba11a3ea34596b96",
+"sha1": "22b4312f18152d4f451aeb3c367d674e77113c88",
+"sha256": "0f7dee0df3e2b6d6364bb7c5184c6b38cd9dd753e2a24340fb355f26411d49a6"
+},
+"dob": {
+"date": "1978-05-22T21:35:00.425Z",
+"age": 42
+},
+"registered": {
+"date": "2009-12-24T17:38:10.952Z",
+"age": 11
+},
+"phone": "06-123-901",
+"cell": "045-905-29-26",
+"id": {
+"name": "HETU",
+"value": "NaNNA491undefined"
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/men/48.jpg",
+"medium": "https://randomuser.me/api/portraits/med/men/48.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/men/48.jpg"
+},
+"nat": "FI"
+},
+{
+"gender": "female",
+"name": {
+"title": "Miss",
+"first": "Minttu",
+"last": "Jarvinen"
+},
+"location": {
+"street": {
+"number": 6326,
+"name": "Rautatienkatu"
+},
+"city": "Tervo",
+"state": "South Karelia",
+"country": "Finland",
+"postcode": 13085,
+"coordinates": {
+"latitude": "73.2374",
+"longitude": "-163.0831"
+},
+"timezone": {
+"offset": "+8:00",
+"description": "Beijing, Perth, Singapore, Hong Kong"
+}
+},
+"email": "minttu.jarvinen@example.com",
+"login": {
+"uuid": "83f397f1-7aa3-43da-adb0-3e5c4c06b351",
+"username": "bluegoose174",
+"password": "respect",
+"salt": "m6uUrVbx",
+"md5": "56e581dac9f863244f0878e71636af4e",
+"sha1": "39dc12d7006d31230b32dcba054ad68ae36b404b",
+"sha256": "d96e587478e8e85652005d1903bc27daf3c79b45277a0191c14525d845535356"
+},
+"dob": {
+"date": "1969-06-09T08:54:09.883Z",
+"age": 51
+},
+"registered": {
+"date": "2011-02-27T20:44:22.135Z",
+"age": 9
+},
+"phone": "02-501-645",
+"cell": "041-546-11-05",
+"id": {
+"name": "HETU",
+"value": "NaNNA926undefined"
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/women/39.jpg",
+"medium": "https://randomuser.me/api/portraits/med/women/39.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/women/39.jpg"
+},
+"nat": "FI"
+},
+{
+"gender": "male",
+"name": {
+"title": "Monsieur",
+"first": "Nolan",
+"last": "Guerin"
+},
+"location": {
+"street": {
+"number": 7161,
+"name": "Avenue du Château"
+},
+"city": "Rossa",
+"state": "St. Gallen",
+"country": "Switzerland",
+"postcode": 7690,
+"coordinates": {
+"latitude": "-7.5243",
+"longitude": "3.7582"
+},
+"timezone": {
+"offset": "-7:00",
+"description": "Mountain Time (US & Canada)"
+}
+},
+"email": "nolan.guerin@example.com",
+"login": {
+"uuid": "61812a79-287a-4120-8f49-32b62b0bb1cb",
+"username": "bluewolf682",
+"password": "sang",
+"salt": "USSn8UPh",
+"md5": "b4728bef97b9527dac9fdd681b811a77",
+"sha1": "bee23e9788ac501a7b698bb1f64495363d59cd8b",
+"sha256": "df87665923a6fb7c1e0e6dbbd27bce876b3181d71a5388e35d555ff953102e2d"
+},
+"dob": {
+"date": "1963-07-11T14:25:08.309Z",
+"age": 57
+},
+"registered": {
+"date": "2008-02-18T07:15:39.276Z",
+"age": 12
+},
+"phone": "075 866 72 39",
+"cell": "077 746 18 24",
+"id": {
+"name": "AVS",
+"value": "756.4899.2037.47"
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/men/82.jpg",
+"medium": "https://randomuser.me/api/portraits/med/men/82.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/men/82.jpg"
+},
+"nat": "CH"
+},
+{
+"gender": "female",
+"name": {
+"title": "Ms",
+"first": "رها",
+"last": "نكو نظر"
+},
+"location": {
+"street": {
+"number": 8984,
+"name": "کلاهدوز"
+},
+"city": "ارومیه",
+"state": "خراسان شمالی",
+"country": "Iran",
+"postcode": 69881,
+"coordinates": {
+"latitude": "39.6791",
+"longitude": "-100.7422"
+},
+"timezone": {
+"offset": "-1:00",
+"description": "Azores, Cape Verde Islands"
+}
+},
+"email": "rh.nkwnzr@example.com",
+"login": {
+"uuid": "fba1c3fa-55db-42da-9c45-e6c7a2d376ef",
+"username": "angryostrich639",
+"password": "bitter",
+"salt": "6pF2KHqV",
+"md5": "ef4b60f79c4f2a43837130763d4cd487",
+"sha1": "5a8e56f7b8b1bdb0b7b4c0b726fe7197d70229cc",
+"sha256": "beb76dae2da8b625347e4999a981521693792c6346a8573521ff99c216fdc35e"
+},
+"dob": {
+"date": "1957-09-14T04:43:28.810Z",
+"age": 63
+},
+"registered": {
+"date": "2019-07-13T05:42:25.141Z",
+"age": 1
+},
+"phone": "022-96975223",
+"cell": "0995-088-6222",
+"id": {
+"name": "",
+"value": null
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/women/44.jpg",
+"medium": "https://randomuser.me/api/portraits/med/women/44.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/women/44.jpg"
+},
+"nat": "IR"
+},
+{
+"gender": "male",
+"name": {
+"title": "Mr",
+"first": "Veeti",
+"last": "Valli"
+},
+"location": {
+"street": {
+"number": 4048,
+"name": "Esplanadi"
+},
+"city": "Malax",
+"state": "North Karelia",
+"country": "Finland",
+"postcode": 91262,
+"coordinates": {
+"latitude": "74.3270",
+"longitude": "-74.4108"
+},
+"timezone": {
+"offset": "-8:00",
+"description": "Pacific Time (US & Canada)"
+}
+},
+"email": "veeti.valli@example.com",
+"login": {
+"uuid": "05c7cac6-cf6e-4f15-ae38-d984c20a93f7",
+"username": "smallzebra218",
+"password": "pathfind",
+"salt": "JjCUqxtw",
+"md5": "209541cb6dc1a013fbe94063886e3370",
+"sha1": "98029ff3bf233944d96c870b5eabd19e15d1a16d",
+"sha256": "f54ac762e882a664b2c0e4e53b4c5b2f14736312d512b2b3864802f786d77530"
+},
+"dob": {
+"date": "1967-12-12T20:00:08.300Z",
+"age": 53
+},
+"registered": {
+"date": "2002-12-07T09:10:28.274Z",
+"age": 18
+},
+"phone": "08-013-073",
+"cell": "041-700-28-69",
+"id": {
+"name": "HETU",
+"value": "NaNNA197undefined"
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/men/86.jpg",
+"medium": "https://randomuser.me/api/portraits/med/men/86.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/men/86.jpg"
+},
+"nat": "FI"
+}
+],
+"info": {
+"seed": "cb6d110c4edea727",
+"results": 5,
+"page": 1,
+"version": "1.3"
+}
+}
+"""
+
+//Your app must include their postcode which can be either a String or an Int.
+
+//Decode this JSON into some type
+//Serialize this JSON into some type
+// Q: What type do we need the JSON to start as, in order to Decode or Serialize it?
+// A: It must be Data in either case
+
+let randomUserData = randomUsers.data(using: .utf8) ?? Data()
+
+
+struct UserWrapper: Codable {
+    let results: [User]
+}
+
+struct User: Codable {
+    let gender: String
+    var postcode: String {
+        return _postcode.value
+    }
+    
+    private let _postcode: PostCode
+    
+    struct PostCode: Codable {
+        let value: String
+        //init while decoding (from Decoder)
+        //we'll need some error type that we can throw
+        //try to decode it as a String -> if it works, set value to that
+        //try to decode it as an Int, then try to cast to a string -> if it works, set value to that
+        //otherwise, throw error
+    }
+}
+
+//when I decode, what will be the type that I tell the decoder it should use as a blueprint?
+//UserWrapper, and then I can look at its results property to return the Users
+
+// As a serialized string
+// Serialize the JSON -> Any
+// Downcast to [String:Any]
+// Have a failing init that downcasts the required values from the dictionary in order to create new instances of the SerializableUser
+
