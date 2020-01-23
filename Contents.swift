@@ -72,6 +72,11 @@ struct BiggerObject: Codable {
         return _greatness.value
     }
     
+    private enum CodingKeys: String, CodingKey {
+        case name, title
+        case _greatness = "greatness"
+    }
+    
     struct Greatness:Codable {
         enum GreatnessError: Error {
             case decodingError
