@@ -20,8 +20,8 @@ let dataString = """
 let data = dataString.data(using: .utf8) ?? Data()
 
 //How in the past have we decoded this data object?
-// Use the JsonDecoder method -> we specify the model that we've defined
-//say that "the decoder should try to decode some data object given the format defined in that tyoe's definition"
+// Use the JsonDecoder's decode method -> we specify the model that we've defined
+//say that "the decoder should try to decode some data object given the format defined in that type's definition"
 
 
 struct BasicObject: Codable {
@@ -53,19 +53,19 @@ let aBasicObject = try? JSONDecoder().decode(BasicObject.self, from: data)
 // To serialize JSON data into a Swift object, we're gonna have to use a whole bunch of downcasting
 
 // We start with [String: Any]
-// For each property we want to use, we then have make sure that we're casting the Any value to the type of the property in our object's definition
+// For each property we want to use, we then have to make sure that we're casting the Any value to the type of the property in our object's definition
 
 //Remember Firebase? How did we initialize objects when we looked at a collection in Firebase and tried to turn the data from that collection into Swift stuff?
-//Had an init function that looked through a dictionary.
+//Had a failing init function that looked through a dictionary.
 
 
 //This struct allows us to init from either a JSONDecoder or a JSONSerializer. In the real world, a struct will likely only need Codable. It was a fun exercise though, wasn't it?
 struct BiggerObject: Codable {
     let name: String
     let title: String
-    //Underscore indicates that this property should NOT be available outside of the the current scope. It should be private. It shouldn't be exposed to anyone using your classes/structs. It's solely here to be used within this object.
+    //Below: underscore as the leading character is a convention that indicates this property should NOT be available outside of the the current scope. It should be private. It shouldn't be exposed to anyone using your classes/structs. It's solely here to be used within this object. You'll see this convention in many languages
     //Here specifically, we should not allow anyone using an instance of the Greatness object to be able to look at the property someBiggerObject._greatness.
-    //We'll look at it to provide the value for a computed property.
+    //We'll later look at it to provide the value for a computed property.
     private let _greatness: Greatness
 
     var greatness: Int {
@@ -148,8 +148,6 @@ let biggerObjects = serializedJSON.compactMap { BiggerObject(from: $0) }
 
 //ultimately, we can get access to this computed variable without worrying about the type in the JSON. The heterogenous property is private, so anyone using our code does not have to worry.
 biggerObjects.first?.greatness
-
-
 
 
 //Lab walkthrough!
@@ -448,8 +446,8 @@ let randomUsers = """
 
 //Your app must include their postcode which can be either a String or an Int.
 
-//Decode this JSON into some type
-//Serialize this JSON into some type
+// Decode this JSON into some type
+// Serialize this JSON into some type
 // Q: What type do we need the JSON to start as, in order to Decode or Serialize it?
 // A: It must be Data in either case
 
@@ -479,10 +477,10 @@ struct User: Codable {
 }
 
 //when I decode, what will be the type that I tell the decoder it should use as a blueprint?
-//UserWrapper, and then I can look at its results property to return the Users
+//UserWrapper, and then I can look at its results property to return the Users array
 
-// As a serialized string
-// Serialize the JSON -> Any
-// Downcast to [String:Any]
+// To initialize as a serialized string
+// Serialize the JSON, which creates an Any object
+// Downcast it to [String:Any]
 // Have a failing init that downcasts the required values from the dictionary in order to create new instances of the SerializableUser
 
